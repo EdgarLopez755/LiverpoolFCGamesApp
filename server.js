@@ -5,16 +5,26 @@ const app = express()
 const mongoose = require('mongoose')
 const methodOverride = require('method-override')
 const morgan = require('morgan')
+const session = require('express-session')
 
 process.env.MONGODB_URI='mongodb+srv://edgarlopez755:zHGPeUzilXAYqOYc@student-cluster.z2jsf.mongodb.net/liverpool-app?retryWrites=true&w=majority&appName=Student-cluster'
 mongoose.connection.on('connected', () => {
     console.log('Connected to MongoDB ')
 })
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI)
 
 
-
+app.use(express.urlencoded({ extended: false}))
+app.use(methodOverride('_method'))
+app.use(morgan('dev'))
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true,
+    })
+)
 
 
 
