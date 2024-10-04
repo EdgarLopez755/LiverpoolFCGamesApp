@@ -37,7 +37,6 @@ const userSchema = new mongoose.Schema({
 const Match = mongoose.model('Match', matchSchema)
 const User = mongoose.model('User', userSchema)
 
-module.exports = Match
-module.exports = User
+module.exports = { Match, User }
 
         
