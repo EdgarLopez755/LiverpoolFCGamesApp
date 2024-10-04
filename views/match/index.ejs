@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Soccer Schedule</title>
+</head>
+<body>
+  <h1>Soccer Schedule</h1>
+  <ul>
+    <% matches.forEach(match => { %>
+      <li>
+        <a href="/matches/<%= match._id %>/edit">Edit</a>
+        <button onclick="deleteMatch('<%= match._id %>')">Delete</button>
+        <h3><%= match.homeTeam.name %> vs. <%= match.awayTeam.name %></h3>
+        <p>Date: <%= new Date(match.date).toLocaleDateString() %></p>
+        <p>Score: <%= match.homeScore %> - <%= match.awayScore %></p>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>

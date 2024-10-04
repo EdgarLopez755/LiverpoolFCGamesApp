@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Score</title>
+</head>
+<body>
+    <h1>Edit Match</h1>
+  <form action="/matches/<%= match._id %>/update-score" method="POST">
+    <label for="homeScore">Home Score:</label>
+    <input type="number" id="homeScore" name="homeScore" value="<%= match.homeScore %>">
+    <br>
+    <label for="awayScore">Away Score:</label>
+    <input type="number" id="awayScore" name="awayScore" value="<%= match.awayScore %>">
+    <br>
+    <button type="submit">Update Score</button>
+  </form>
+</body>
+</html>
