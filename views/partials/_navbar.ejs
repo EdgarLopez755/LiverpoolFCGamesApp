@@ -2,8 +2,7 @@
     <a href="/">Home</a>
     <% if(user) { %>
         <a href="/users/<%=user._id%>/match">Liverpool 2024 Season</a>
-        <a href="/auth/sign-out">Sign Out</a>
-      <% } else { %>
+        <% } else { %>
         <a href="/auth/sign-in">Sign In</a>
         <a href="/auth/sign-up">Sign Up</a>
       <% } %>

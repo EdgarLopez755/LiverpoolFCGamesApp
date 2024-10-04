@@ -3,30 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Match</title>
+    <title>Create Match</title> 
+
 </head>
 <body>
     <h1>Create Match</h1>
     <form action="/matches/create" method="POST">
         <label for="homeTeam">Home Team:</label>
-    <select id="homeTeam" name="homeTeam">
-      <% teams.forEach(team => { %>
-        <option value="<%= team._id %>"><%= team.name %></option>
-      <% }); %>
-    </select>
-    <br>
-    <label for="awayTeam">Away Team:</label>
-    <select id="awayTeam" name="awayTeam">
-      <% teams.forEach(team => { %>
-        <option value="<%= team._id %>"><%= team.name %></option>
-      <% }); %>
-    </select>
-    <br>
-    <label for="date">Date:</label>
-    <input type="date" id="date" name="date">
-    <br>
-    <button type="submit">Create Match</button>
-      
+        <select id="homeTeam" name="homeTeam">
+          <% if (teams.length > 0) { %>  <% teams.forEach(team => { %>
+              <option value="<%= team._id %>"><%= team.name %></option>
+            <% }); %>
+          <% } else { %>
+            <option>No teams available</option> <% } %>
+        </select>
+        <br>
+        <label for="awayTeam">Away Team:</label>
+        <select id="awayTeam" name="awayTeam">
+          <% if (teams.length > 0) { %>  <% teams.forEach(team => { %>
+              <option value="<%= team._id %>"><%= team.name %></option>
+            <% }); %>
+          <% } else { %>
+            <option>No teams available</option> <% } %>
+        </select>
+        <br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+        <br>
+        <button type="submit">Create Match</button>
     </form>
 </body>
 </html>
