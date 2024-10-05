@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 
 const User = require('../models/user.js')
 
+
 router.get('/sign-up', (req, res) => {
     res.render('auth/sign-up.ejs')
 })
@@ -56,10 +57,10 @@ router.post('/sign-in', async (req, res) => {
             username: userInDatabase.username,
             _id: userInDatabase._id
         }
-        res.redirect('/match');
+        res.redirect('/');
     } catch (error) {
         console.log(error);
-        res.redirect('/match')
+        res.redirect('/')
     }
 })
 

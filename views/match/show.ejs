@@ -1,17 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Match</title>
+    <title>Matches</title> 
+
 </head>
 <body>
-    <h1>Add Match</h1>
-    <p><strong>Home Team:</strong> <%= match.homeTeam.name %></p>
-    <p><strong>Away Team:</strong> <%= match.awayTeam.name %></p>
-    <p><strong>Date:</strong> <%= new Date(match.date).toLocaleDateString() %></p>
-    <p><strong>Score:</strong> <%= match.homeScore %> - <%= match.awayScore %></p>
-    <a href="/matches">Back to Matches</a>
-
+    <h1>All Matches</h1>
+    <ul>
+        <% matches.forEach(match => { %>
+            <li>
+                <a href="/matches/<%= match._id %>">
+                    <%= match.homeTeam.name %> vs. <%= match.awayTeam.name %>
+                </a>
+                <span> (<%= match.homeScore %> - <%= match.awayScore %>) </span>
+                <span> - <%= new Date(match.date).toLocaleDateString() %></span>
+            </li>
+        <% }); %>
+    </ul>
 </body>
 </html>
