@@ -3,41 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= match.homeTeam.name %> vs. <%= match.awayTeam.name %></title>
+    <title>Matches</title>
+
 </head>
 <body>
-    <h1>Match Details</h1>
-    <% if (match) { %>
-        <form action="/matches/<%= match._id %>/update" method="POST">
-            <label for="homeTeam">Home Team:</label>
-            <select id="homeTeam" name="homeTeam">
-                <% teams.forEach(team => { %>
-                    <option value="<%= team._id %>" <%= match.homeTeam._id === team._id ? 'selected' : '' %>><%= team.name %></option>
-                <% }); %>
-            </select>
-            <br>
-            <label for="awayTeam">Away Team:</label>
-            <select id="awayTeam" name="awayTeam">
-                <% teams.forEach(team => { %>
-                    <option value="<%= team._id %>" <%= match.awayTeam._id === team._id ? 'selected' : '' %>><%= team.name %></option>
-                <% }); %>
-            </select>
-            <br>
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" value="<%= new Date(match.date).toISOString().slice(0, 10) %>">
-            <br>
-            <label for="homeScore">Home Score:</label>
-            <input type="number" id="homeScore" name="homeScore" value="<%= match.homeScore %>">
-            <br>
-            <label for="awayScore">Away Score:</label>
-            <input type="number" id="awayScore" name="awayScore" value="<%= match.awayScore %>">
-            <br>
-            <button type="submit">Update Match</button>
-        </form>
-    <% } else { %>
-        <p>Match not found!</p>
-    <% } %>
-
-    <a href="/matches">Back to Matches</a>
+    <h1>All Matches</h1>
+    <form action="/matches" method="POST"></form>
+    <ul>
+        <% matches.forEach(match => { %>
+            <li>
+                <a href="/matches/<%= match._id %>">
+                    <%= match.homeTeam.name %> vs. <%= match.awayTeam.name %>
+                </a>
+                <span> (<%= match.homeScore %> - <%= match.awayScore %>) </span>
+                <span> - <%= new Date(match.date).toLocaleDateString() %></span>
+                <a href="/matches/<%= match._id %>/edit">Edit</a>
+                <a href="/matches/<%= match._id %>/delete" onclick="return confirm('Are you sure you want to delete this match?')">Delete</a>
+            </li>
+        <% }); %>
+    </ul>
 </body>
 </html>
