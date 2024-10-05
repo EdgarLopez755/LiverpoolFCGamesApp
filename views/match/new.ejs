@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Match</title>
+</head>
+<body>
+    <h1>Create New Match</h1>
+        <form action="/users/<%= user._id %>/match" method="POST">
+        <label for="homeTeam">Home Team:</label>
+        <input type="text" id="homeTeam" name="homeTeam" required>
+        <br>
+        <label for="awayTeam">Away Team:</label>
+        <input type="text" id="awayTeam" name="awayTeam" required>
+        <br>
+        <label for="date">Date:</label> 
+
+        <input type="date" id="date" name="date" required>
+        <br>
+        <label for="homeScore">Home Score:</label>
+        <input type="number" id="homeScore" name="homeScore" required>
+        <br>
+        <label for="awayScore">Away Score:</label>
+        <input type="number" id="awayScore" name="awayScore" required>
+        <br>
+        <button type="submit">Create Match</button>
+    </form>
+</body>
+</html>

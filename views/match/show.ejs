@@ -1,30 +1,22 @@
-<a href="/">Home</a>
+<%- include('../partials/_navbar.ejs') %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Match</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title><%= match.homeTeam %> vs. <%= match.awayTeam %></title>
 </head>
 <body>
-    <h1>Create New Match</h1> 
-    <form action="/match" method="POST">
-        <label for="homeTeam">Home Team:</label>
-        <input type="text" id="homeTeam" name="homeTeam">
-        <br>
-        <label for="awayTeam">Away Team:</label>
-        <input type="text" id="awayTeam" name="awayTeam">
-        <br>
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date">
-        <br>
-        <label for="homeScore">Home Score:</label>
-        <input type="number" id="homeScore" name="homeScore">
-        <br>
-        <label for="awayScore">Away Score:</label>
-        <input type="number" id="awayScore" name="awayScore">
-        <br>
-        <button type="submit">Create Match</button>
-    </form>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Match Details</h1>
+    <form action="/users/<%= user._id %>/match/<%= match._id %>?_method=DELETE" method="POST">
+        </form>
+    <p><strong>Home Team:</strong> <%= match.homeTeam %></p>
+    <p><strong>Away Team:</strong> <%= match.awayTeam %></p>
+    <p><strong>Date:</strong> <%= match.date %></p>
+    <p><strong>Home Score:</strong> <%= match.homeScore %></p>
+    <p><strong>Away Score:</strong> <%= match.awayScore %></p>
 </body>
 </html>

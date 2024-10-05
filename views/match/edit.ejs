@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Match</title>
+</head>
+<body>
+    <%- include('../partials/navbar.ejs') %>
+    <div class="edit-body"></div>
+    <form action="/users/<%= user._id %>/match/<%= match._id %>?_method=PUT" method="POST"></form>
+        <label for="homeTeam">Home Team:</label>
+        <input type="text" id="homeTeam" name="homeTeam" value="<%= match.homeTeam %>">
+        <br>
+        <label for="awayTeam">Away Team:</label>
+        <input type="text" id="awayTeam" name="awayTeam" value="<%= match.awayTeam %>">
+        <br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" value="<%= match.date %>">
+        <br>
+        <label for="homeScore">Home Score:</label>
+        <input type="number" id="homeScore" name="homeScore" value="<%= match.homeScore %>">
+        <br>
+        <label for="awayScore">Away Score:</label>
+        <input type="number" id="awayScore" name="awayScore" value="<%= match.awayScore %>">
+        <br>
+        <button type="submit">Update Match</button>
+    </form>
+</div>
+</body>
+</html>
