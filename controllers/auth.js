@@ -57,7 +57,7 @@ router.post('/sign-in', async (req, res) => {
             username: userInDatabase.username,
             _id: userInDatabase._id,
         }
-        res.redirect('/')
+        res.redirect(`/users/${req.session.user._id}/match/new`)
     } catch (error) {
         console.log(error);
         res.redirect('/')
