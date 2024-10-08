@@ -1,18 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matches</title>
+    <title>All Matches</title>
 
 </head>
 <body>
+  
     <h1>All Matches</h1>
     <form action="/matches" method="POST"></form>
     <ul>
         <% matches.forEach(match => { %>
             <li>
-                <a href="/matches/<%= match._id %>">
+                <a href="/matches/<%= matches._id %>">
                     <%= match.homeTeam.name %> vs. <%= match.awayTeam.name %>
                 </a>
                 <span> (<%= match.homeScore %> - <%= match.awayScore %>) </span>

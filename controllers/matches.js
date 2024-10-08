@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 
 
 
+
 router.get('/new', async (req, res) => {
     res.render('match/new.ejs')
 })
@@ -30,7 +31,7 @@ router.get('/new', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id);
-        currentUser.match.push(req.body);
+        currentUser.matches.push(req.body);
 
         await currentUser.save()
         res.redirect(`/users/${currentUser._id}/match`)
