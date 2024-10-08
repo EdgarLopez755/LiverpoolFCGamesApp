@@ -7,11 +7,11 @@ const User = require('../models/user.js')
 
 
 router.get('/', async (req, res) => {
-    console.log('home route')
+    
     try {
         const currentUser = await User.findById(req.session.user._id)
         res.render('match/index.ejs', {
-            match: currentUser.match
+            matches: currentUser.matches
         })
     } catch (error) {
         console.log(error)
