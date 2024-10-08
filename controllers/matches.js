@@ -7,6 +7,7 @@ const User = require('../models/user.js')
 
 
 router.get('/', async (req, res) => {
+    console.log('home route')
     try {
         const currentUser = await User.findById(req.session.user._id)
         res.render('match/index.ejs', {
@@ -24,6 +25,7 @@ router.get('/', async (req, res) => {
 router.get('/new', async (req, res) => {
     res.render('match/new.ejs')
 })
+
 
 router.post('/', async (req, res) => {
     try {
@@ -55,7 +57,7 @@ router.get('/:matchId/edit', async (req, res) => {
 router.get('/:matchId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
-        const match = currentUser.events.id(req.params.matchId)
+        const match = currentUser.match.id(req.params.matchId)
         console.log(match)
         res.render('match/show.ejs', {
             match: match 
@@ -69,10 +71,10 @@ router.get('/:matchId', async (req, res) => {
 router.put('/:matchId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
-        const match = currentUser.match.id(req.params.eventId)
+        const match = currentUser.match.id(req.params.matchId)
         match.set(req.body)
         await currentUser.save()
-        res.redirect(`/users/${currentUser._id}/match/${req.params.matchId}`)
+        res.redirect(`/users/${req.session.user._id}/match/${req.params.matchId}`)
     } catch (error) {
         console.log(error)
         res.redirect('/')
@@ -83,9 +85,9 @@ router.put('/:matchId', async (req, res) => {
 router.delete('/:matchId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.sessionID._id)
-        currentUser.match.id(req.params.eventId).deleteOne()
+        currentUser.match.id(req.params.matchId).deleteOne()
         await currentUser.save()
-        res.redirect(`/users/${req.params.songId}/match`)
+        res.redirect(`/users/${req.params.matchId}/match`)
     } catch (err) {
         console.log(err)
         res.redirect('/')
