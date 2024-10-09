@@ -11,7 +11,8 @@ router.get('/', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
         res.render('match/index.ejs', {
-            matches: currentUser.matches
+            matches: currentUser.matches,
+            id: currentUser._id
         })
     } catch (error) {
         console.log(error)
@@ -85,8 +86,9 @@ router.put('/:matchId', async (req, res) => {
 
 router.delete('/:matchId', async (req, res) => {
     try {
-        const currentUser = await User.findById(req.sessionID._id)
-        currentUser.match.id(req.params.matchId).deleteOne()
+        const currentUser = await User.findById(req.session.user._id)
+        console.log(currentUser)
+        currentUser.matches.id(req.params.matchId).deleteOne()
         await currentUser.save()
         res.redirect(`/users/${req.params.matchId}/match`)
     } catch (err) {

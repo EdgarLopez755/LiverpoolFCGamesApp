@@ -54,8 +54,8 @@ app.get('/', async (req, res) => {
 
 
 app.use('/auth', authController)
-app.use('/users/:userId/match', matchesController)
 app.use(isSignedIn)
+app.use('/users/:userId/match', matchesController)
 
 
 
