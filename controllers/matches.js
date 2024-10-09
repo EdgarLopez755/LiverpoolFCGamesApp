@@ -45,9 +45,9 @@ router.post('/', async (req, res) => {
 router.get('/:matchId/edit', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
-        const match = currentUser.match.id(req.params.matchId)
+        const match = currentUser.matches.id(req.params.matchId)
         res.render('match/edit.ejs', {
-        match,
+        match, currentUser
     })
     } catch (err) {
         console.log(err)
@@ -73,7 +73,7 @@ router.get('/:matchId', async (req, res) => {
 router.put('/:matchId', async (req, res) => {
     try {
         const currentUser = await User.findById(req.session.user._id)
-        const match = currentUser.match.id(req.params.matchId)
+        const match = currentUser.matches.id(req.params.matchId)
         match.set(req.body)
         await currentUser.save()
         res.redirect(`/users/${req.session.user._id}/match/${req.params.matchId}`)
