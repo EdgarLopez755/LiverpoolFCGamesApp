@@ -4,11 +4,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
 
     <title><%= matches.homeTeam %> vs. <%= matches.awayTeam %></title>
 </head>
 <body>
+    <div class="flex-container"></div>
     <%- include('../partials/_navbar.ejs') %>
     <h1>Match Details</h1>
     <form action="/users/<%= user._id %>/match/<%= match._id %>?_method=DELETE" method="POST">
