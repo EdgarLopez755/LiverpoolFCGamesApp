@@ -13,6 +13,7 @@
 <body>
   
     <h1>All Matches</h1>
+    <div class="image-container"></div>
     <form action="/matches" method="POST"></form>
     <ul>
         <% matches.forEach(match => { %>
@@ -20,13 +21,15 @@
                 <span>
                     <%= match.homeTeam %> vs. <%= match.awayTeam %>
                 </span>
-                <span> (<%= match.homeScore %> - <%= match.awayScore %>) </span>
+                <span>  (<%= match.homeScore %> - <%= match.awayScore %>)  </span>
                 <span> - <%= new Date(match.date).toLocaleDateString() %></span>
                 <form action="/users/<%= id %>/match/<%= match._id %>/edit" method="PUT">
                     <button type="submit">Edit</button>
                 </form>
                 <form action="/users/<%= id %>/match/<%= match._id %>?_method=DELETE" method="POST"> <button type="submit">Delete</button>
+            
                 </form>
+                
             </li>
         <% }); %>
     </ul>

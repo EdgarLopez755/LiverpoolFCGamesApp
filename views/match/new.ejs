@@ -1,8 +1,8 @@
-<a href="/">All Matches</a>
-<a href="/auth/sign-in">Sign Out</a>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
+    <a href="/">All Matches</a>
+    <a href="/auth/sign-in">Sign Out</a>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css"/>
@@ -11,7 +11,7 @@
 <body>
     
     <div class="flex-container"></div>
-    <h1>Create New Match</h1>
+    <h1>Create New Match !</h1>
         <form action="/users/<%= user._id %>/match" method="POST">
         <label for="homeTeam">Home Team:</label>
         <input type="text" id="homeTeam" name="homeTeam" required>
@@ -30,6 +30,7 @@
         <input type="number" id="awayScore" name="awayScore" required>
         <br>
         <button type="submit">Create Match</button>
+        <div class="image-container2"></div>
     </form>
 </body>
 </html>
