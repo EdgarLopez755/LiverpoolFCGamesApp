@@ -174,9 +174,9 @@ button {
 
 
 .image-container3 {
-    background-image: url("");
+    background-image: url("https://www.interflag.gr/3624-thickbox_default/football-teams-flags-interflag-apeiranthitis.jpg");
     background-size: cover;
     background-position: center;
-    width: 75%;
-    height: 200px;
+    width: 100%;
+    height: 400px;
   }
