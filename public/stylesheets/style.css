@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap');
+body {
+    
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .flex-container {
+    
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  .home-team,
+  .away-team {
+    font-weight: bold;
+  }
+  
+  .score {
+    font-size: 2em;
+    margin: 0 10px;
+  }
+  
+  .match-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .match-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .match-details {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  
+  
+  body {
+    background-color: #cccccc; 
+  }
+  
+  h1 {
+    color: #c8102e;
+
+
+  }
+  
+  .home-team {
+    color: #c8102e; 
+  }
+  
+  .away-team {
+    color: #c8102e; 
+  }
+
+
+  form {
+    display: flex;
+    margin-top: 8em;
+    unicode-bidi: isolate;
+    margin-block-end: 1em;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    border: 12px solid #c8102e; 
+    padding: 30px;
+    border-radius: 50px;
+} 
+
+label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px; 
+  }
+
+
+li {
+    display: flex;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+a:-webkit-any-link {
+    display: flex;
+    color: red;
+    cursor: pointer;
+    text-decoration: underline;
+    justify-content: center;
+}
+
+p {
+    display: flex;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    justify-content: center;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+button {
+    appearance: auto;
+    text-rendering: auto;
+    color: white;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: red;
+    margin: 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: black;
+    border-image: initial;
+}
+

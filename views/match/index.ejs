@@ -1,4 +1,5 @@
 <a href="/users/matchId/match/new">Back</a>
+<a href="/auth/sign-in">Sign Out</a>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
                 <span> (<%= match.homeScore %> - <%= match.awayScore %>) </span>
                 <span> - <%= new Date(match.date).toLocaleDateString() %></span>
                 <form action="/users/<%= id %>/match/<%= match._id %>/edit" method="PUT">
-                  <button type="submit">Edit</button>
+                    <button type="submit">Edit</button>
                 </form>
                 <form action="/users/<%= id %>/match/<%= match._id %>?_method=DELETE" method="POST"> <button type="submit">Delete</button>
                 </form>
