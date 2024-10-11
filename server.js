@@ -8,6 +8,7 @@ const morgan = require('morgan')
 const session = require('express-session')
 const path = require('path')
 
+
 const authController = require('./controllers/auth.js')
 const matchesController = require('./controllers/matches.js')
 
@@ -62,7 +63,7 @@ app.use('/users/:userId/match', matchesController)
 
 
 
-
-app.listen(3000, () => {
-    console.log('Listening on Port 3000')
-})
+const port = process.env.PORT
+app.listen(port, () => {
+    console.log("Listening on port " + port);
+  })
